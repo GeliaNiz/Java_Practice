@@ -35,4 +35,20 @@ package practice5;
                  ", center=" + center +
                  '}';
      }
+
+     public int getRadius() {
+         return radius;
+     }
+
+     public void setRadius(int radius) {
+         this.radius = radius;
+     }
+
+     public MovablePoint getCenter() {
+         return center;
+     }
+
+     public void setCenter(MovablePoint center) {
+         this.center = center;
+     }
  }
