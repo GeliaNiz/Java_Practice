@@ -1,47 +1,41 @@
 package practice5;
 
- class MovableCircle implements Movable{
-    private int radius;
+
+import practice4.Circle;
+
+class MovableCircle extends Circle implements Movable{
     private MovablePoint center;
-    MovableCircle(int x,int y,int xSpeed, int ySpeed,int radius){
-        this.radius=radius;
-        center=new MovablePoint(x,y,xSpeed,ySpeed);
+
+    MovableCircle(int x,int y,int radius){
+        super(radius);
+        center=new MovablePoint(x,y);
     }
 
     @Override
-    public void moveUp() {
-        center.moveUp();
+    public void moveUp(int Speed) {
+        center.moveUp(Speed);
     }
 
     @Override
-    public void moveDown() {
-        center.moveDown();
+    public void moveDown(int Speed) {
+        center.moveDown(Speed);
     }
 
     @Override
-    public void moveLeft() {
-        center.moveLeft();
+    public void moveLeft(int Speed) {
+        center.moveLeft(Speed);
     }
 
     @Override
-    public void moveRight() {
-        center.moveRight();
+    public void moveRight(int Speed) {
+        center.moveRight(Speed);
     }
 
      @Override
      public String toString() {
          return "MovableCircle{" +
-                 "radius=" + radius +
                  ", center=" + center +
                  '}';
-     }
-
-     public int getRadius() {
-         return radius;
-     }
-
-     public void setRadius(int radius) {
-         this.radius = radius;
      }
 
      public MovablePoint getCenter() {

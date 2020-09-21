@@ -3,32 +3,28 @@ package practice5;
 class MovablePoint implements Movable {
     private int x;
     private int y;
-    private int xSpeed;
-    private int ySpeed;
-    MovablePoint(int x,int y,int xSpeed,int ySpeed){
+    MovablePoint(int x,int y){
         this.x=x;
         this.y=y;
-        this.xSpeed=xSpeed;
-        this.ySpeed=ySpeed;
     }
     @Override
-    public void moveUp() {
-        y-=ySpeed;
+    public void moveUp(int Speed) {
+        y-=Speed;
     }
 
     @Override
-    public void moveDown() {
-        y+=ySpeed;
+    public void moveDown(int Speed) {
+        y+=Speed;
     }
 
     @Override
-    public void moveLeft() {
-        x-=xSpeed;
+    public void moveLeft(int Speed) {
+        x-=Speed;
     }
 
     @Override
-    public void moveRight() {
-        x+=xSpeed;
+    public void moveRight(int Speed) {
+        x+=Speed;
     }
 
     @Override
@@ -36,8 +32,6 @@ class MovablePoint implements Movable {
         return "MovablePoint{" +
                 "x=" + x +
                 ", y=" + y +
-                ", xSpeed=" + xSpeed +
-                ", ySpeed=" + ySpeed +
                 '}';
     }
 
@@ -57,19 +51,4 @@ class MovablePoint implements Movable {
         this.y = y;
     }
 
-    public int getxSpeed() {
-        return xSpeed;
-    }
-
-    public void setxSpeed(int xSpeed) {
-        this.xSpeed = xSpeed;
-    }
-
-    public int getySpeed() {
-        return ySpeed;
-    }
-
-    public void setySpeed(int ySpeed) {
-        this.ySpeed = ySpeed;
-    }
 }
