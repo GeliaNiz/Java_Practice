@@ -6,9 +6,8 @@ public class Main {
         static void solve(int n) {
             for(int i=n/5;i>=0;i--){
                 for(int j=(n-i*5)/3;j>=0;j--){
-                    for(int z=n-i*5-j*3;z>=0;z--){
-                        if(i*5+j*3+z==n)k++;
-                    }
+                    k++;
+
                 }
             }
         }
