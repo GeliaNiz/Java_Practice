@@ -1,5 +1,4 @@
 package practice78;
-
 public class TopManager  implements EmployeePosition {
     private Company comp;
     TopManager(Company comp){this.comp=comp;}

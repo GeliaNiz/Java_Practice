@@ -1,5 +1,4 @@
 package practice78;
-
 public class Manager  implements EmployeePosition {
     private Company comp;
     private double salary;

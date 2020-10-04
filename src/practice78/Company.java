@@ -1,38 +1,36 @@
 package practice78;
-
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Vector;
 public class Company  {
     private ArrayList<Employee> employees=new ArrayList<>();
+    private String name;
     private long income;
-    Company(long income){this.income=income;}
+    Company(long income,String name){this.income=income;this.name=name;}
     void hire(Employee emp){employees.add(emp);}
     void hireAll(ArrayList<Employee>list){
-        for(Employee i:list){
-            employees.add(i);
-        }
+        employees.addAll(list);
     }
-    void fire(int kolvo) {
+    void fire(int kolvo, Vector v) {
         for (int i = 0; i < kolvo; i++) {
             employees.remove(i);
         }
     }
-
-
     public long getIncome() {
         return income;
     }
-
     public void setIncome(long income) {
         this.income = income;
     }
-
     ArrayList<Employee>getTopSalaryStaff(int count){
+        if(count<=0){
+            System.out.println("Вы ввели некорректное число сотрудников");
+            return null;
+        }
         Employee temp;
         for(int i=0;i<employees.size();i++){
             temp=getEmployee(i);
             int j=i-1;
-            while((j>=0) && (temp.getEmpPos().calcSalary(temp.getSalary())>getEmployee(j).getEmpPos().calcSalary(getEmployee(j).getSalary()))){
+            while((j>=0) && (temp.getEmpPos().calcSalary(temp.getSalary())>getEmployeeSalary(j))){
                 employees.set(j+1,getEmployee(j));
                 j--;
             }
@@ -43,18 +41,21 @@ public class Company  {
         return emp;
     }
     ArrayList<Employee>getLowerSalaryStaff(int count){
+        if(count<=0){
+            System.out.println("Вы ввели некорректное число сотрудников");
+            return null;
+        }
         Employee temp;
         for(int i=0;i<employees.size();i++){
             temp=getEmployee(i);
             int j=i-1;
-            while((j>=0) && (temp.getEmpPos().calcSalary(temp.getSalary())<getEmployee(j).getEmpPos().calcSalary(getEmployee(j).getSalary()))){
+            while((j>=0) && (temp.getEmpPos().calcSalary(temp.getSalary())<getEmployeeSalary(j))){
                 employees.set(j+1,getEmployee(j));
                 j--;
             }
             employees.set(j+1,temp);
         }
         ArrayList<Employee> emp=new ArrayList<>();
-        Collections.reverseOrder();
         for(int i=0;i<count;i++) emp.add(employees.get(i));
         return emp;
     }
@@ -63,7 +64,7 @@ public class Company  {
         return employees;
     }
     public Employee getEmployee(int i){return employees.get(i);}
-    public double getEmployeeSalary(int i){return employees.get(i).getSalary();}
+    public double getEmployeeSalary(int i){return employees.get(i).getEmpPos().calcSalary(employees.get(i).getSalary());}
     public void setEmployees(ArrayList<Employee> employees) {
         this.employees = employees;
     }

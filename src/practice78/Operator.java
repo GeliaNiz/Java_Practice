@@ -1,5 +1,4 @@
 package practice78;
-
 public class Operator  implements EmployeePosition{
     private Company comp;
     Operator(Company comp){this.comp=comp;}
