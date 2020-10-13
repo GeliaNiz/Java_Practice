@@ -9,6 +9,10 @@ public class Calc extends JFrame {
     final static int size_button=50;
     public Calc() {
         super("Calculator");
+
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setSize(500,250);
+
         DecimalFormat dec=new DecimalFormat("###.###");
         JPanel panel=new JPanel();
         JPanel panel2=new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -92,9 +96,6 @@ public class Calc extends JFrame {
                 }
             }
         });
-
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(500,400);
 
     }
     boolean check(JTextField f1,JTextField f2){
