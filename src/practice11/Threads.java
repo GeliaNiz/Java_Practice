@@ -8,6 +8,12 @@ public class Threads {
         long startTime = System.currentTimeMillis();
          int k=0;
         ArrayList<Thread> threads = new ArrayList<>();
+        for(int i=0;i<10;i++){
+            work(i);
+        }
+        long endTime = System.currentTimeMillis();
+        System.out.println("total time: "+ (endTime-startTime));
+        startTime=System.currentTimeMillis();
         for (int i = 0; i <  10; i++){
             final int localI = i;
             Thread thread = new Thread(()->work(localI));
@@ -18,7 +24,7 @@ public class Threads {
         for(Thread t: threads){
             t.join();
         }
-        long endTime = System.currentTimeMillis();
+        endTime = System.currentTimeMillis();
         System.out.println("total time: " + (endTime - startTime));
         System.out.println("total sum: " + totalSum);
     }
