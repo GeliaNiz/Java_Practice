@@ -12,10 +12,10 @@ public class Main {
         for(int i=0;i<j;i++){
             classnumber[i]=sc.nextByte();
         }
+        pupil.setClass_number(classnumber,j);
         try{
             pupil.setMark(mark);
             pupil.setName(name);
-            pupil.setClass_number(classnumber,j);
         } catch (IncorrectMarkException inc){
             System.out.println(inc);
         } catch (Exception exc){
