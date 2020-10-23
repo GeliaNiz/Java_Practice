@@ -1,5 +1,4 @@
 package practice10;
-import javafx.geometry.VerticalDirection;
 import javax.swing.*;
 import java.awt.*;
 import java.text.DecimalFormat;
