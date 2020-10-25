@@ -31,7 +31,7 @@ public class WithoutRegularExpressions {
         for (j = 0; j < st.length(); j++) {
             b=false;
             for (int i = 0; i < l.size(); i++) {
-                if (j + l.get(i).getKey().length() < st.length()) {
+                if (j + l.get(i).getKey().length() <= st.length()) {
                     curr = st.substring(j, j + l.get(i).getKey().length());
                     if (curr.equals(l.get(i).getKey())) {
                         b = true;
