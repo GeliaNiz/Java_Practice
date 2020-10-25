@@ -7,20 +7,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.*;
 
 public class WithRegularExpressions {
     public static void main(String[]args){
         Scanner sc = new Scanner(System.in);
         Map<String, String> map = new HashMap<>();
-        Boolean b = false;
         int number;
-        int index = 0;
-        int j = 0;
         String s1;
         String s2;
         String st;
-        String result;
         StringBuilder patterns= new StringBuilder();
         number = sc.nextInt();
         while (number > 0) {

@@ -1,12 +1,7 @@
 package practice14;
-
-
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -32,7 +27,7 @@ public class WithoutRegularExpressions {
         }
         st = sc.next();
         //Конец ввода данных
-       /* List<Map.Entry<String, String>> l = new ArrayList<>(map.entrySet());
+       List<Map.Entry<String, String>> l = new ArrayList<>(map.entrySet());
         for (j = 0; j < st.length(); j++) {
             b=false;
             for (int i = 0; i < l.size(); i++) {
@@ -50,7 +45,7 @@ public class WithoutRegularExpressions {
                 result+=st.charAt(j);
             }
         }
-        System.out.println(result);*/
+        System.out.println(result);
     }
 }
 
