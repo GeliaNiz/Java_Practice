@@ -5,27 +5,28 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 
-public class WithoutRegularExpressions {
+public class WithoutRegularExpressions{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Map<String, String> map = new HashMap<String, String>();
+        String[] str=new String[2];
         Boolean b = false;
         int number;
         int index = 0;
         int j = 0;
-        String s1;
-        String s2;
+        String s1="";
+        String s2="";
         String st;
         String result = "";
         String curr="";
-        number = sc.nextInt();
+        number = Integer.parseInt(sc.nextLine());
         while (number > 0) {
-            s1 = sc.next();
-            s2 = sc.next();
-            map.put(s1, s2);
+            s1=sc.nextLine();
+            str=s1.split(" ");
+            map.put(str[0], str[1]);
             number--;
         }
-        st = sc.next();
+        st = sc.nextLine();
         //Конец ввода данных
        List<Map.Entry<String, String>> l = new ArrayList<>(map.entrySet());
         for (j = 0; j < st.length(); j++) {
