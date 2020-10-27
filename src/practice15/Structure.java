@@ -5,20 +5,20 @@ import java.util.ArrayList;
 public class Structure {
     private ArrayList<Node> structure=new ArrayList<>();
     Node pointer;
-    void InitialPointer(){pointer=structure.get(0);}
-    public void Add(int count){
+    void initialPointer(){pointer=structure.get(0);}
+    public void add(int count){
         for(int i=0;i<count;i++) {
             Node nd=new Node();
             structure.add(nd);
         }
     }
-    public void InitLinks(int index,Node one,Node zero,int action1,int action2){
+    public void initLinks(int index, Node one, Node zero, int action1, int action2){
         structure.get(index).setState(one,1);
         structure.get(index).setState(zero,0);
         structure.get(index).setAction(action1,0);
         structure.get(index).setAction(action2,1);
     }
-    public void GoToNextState(int state_number){
+    public void goToNextState(int state_number){
         pointer=pointer.getState(state_number);
     }
     Node getElement(int index){
