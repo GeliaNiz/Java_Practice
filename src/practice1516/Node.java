@@ -1,4 +1,4 @@
-package practice15;
+package practice1516;
 public class Node{
     private Node[] states=new Node[2];
     private int[] actions=new int[2];

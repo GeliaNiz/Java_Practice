@@ -567,9 +567,9 @@ public class WithRegularExpressions {
     }
 }
 ```
-##### C:\Users\dom\Desktop\programs\practice5\src\practice15\Main.java
+##### C:\Users\dom\Desktop\programs\practice5\src\practice1516\Main.java
 ```java
-package practice15;
+package practice1516;
 import java.util.Scanner;
 public class Main {
     public static void main(String[]args){
@@ -592,9 +592,9 @@ public class Main {
     }
 }
 ```
-##### C:\Users\dom\Desktop\programs\practice5\src\practice15\Node.java
+##### C:\Users\dom\Desktop\programs\practice5\src\practice1516\Node.java
 ```java
-package practice15;
+package practice1516;
 public class Node{
     private Node[] states=new Node[2];
     private int[] actions=new int[2];
@@ -622,9 +622,9 @@ public class Node{
 
 }
 ```
-##### C:\Users\dom\Desktop\programs\practice5\src\practice15\Structure.java
+##### C:\Users\dom\Desktop\programs\practice5\src\practice1516\Structure.java
 ```java
-package practice15;
+package practice1516;
 
 import java.util.ArrayList;
 
