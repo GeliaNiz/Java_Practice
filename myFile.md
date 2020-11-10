@@ -677,9 +677,9 @@ public class Structure {
     }
 }
 ```
-##### C:\Users\dom\Desktop\programs\practice5\src\practice17\Main.java
+##### C:\Users\dom\Desktop\programs\practice5\src\practice1718\Main.java
 ```java
-package practice17;
+package practice1718;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -698,7 +698,7 @@ public class Main {
     static File basePath = new File("C:\\Users\\dom\\Desktop\\programs\\practice5\\src");
    static File[] packages;
     static ArrayList<String>paths=new ArrayList<>();
-    static String myFile=basePath.getPath()+"\\practice17\\myFile.md";
+    static String myFile=basePath.getPath()+"\\practice1718\\myFile.md";
     static void getPackages(File basePath) {
         if (basePath.isDirectory()) {
             packages = basePath.listFiles();
