@@ -1,10 +1,13 @@
 package practice1920chat;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Client {
@@ -18,6 +21,7 @@ public class Client {
             e.printStackTrace();
         }
     }
+    public static String s="";
 
     public static Runnable sending= new Runnable() {
         @Override
@@ -46,6 +50,7 @@ public class Client {
             }
         }
     };
+
     public static void main(String[] args) throws IOException{
         Thread th1=new Thread(sending) ;
         Thread th2=new Thread(receiving);
@@ -59,12 +64,13 @@ public class Client {
         socket.send(packet);
     }
     public static void receiveMessage()throws IOException{
-        System.out.println("r");
         byte[] buffer=new byte[5000];
         DatagramPacket packet=new DatagramPacket(buffer,0,buffer.length);
         socket.receive(packet);
         String message=new String(buffer,0,packet.getLength());
-        System.out.println(message);
+        s=(new SimpleDateFormat("HH:mm:ss").format(new Date())+" "+message);
+        System.out.println(new SimpleDateFormat("HH:mm:ss").format(new Date())+" "+message);
 
     }
+
 }
