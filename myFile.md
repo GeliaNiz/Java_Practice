@@ -662,7 +662,7 @@ public class Structure {
                 return "restart";
             }
             case 4: {
-                return "test";
+                return "practice2122.test";
             }
             case 5: {
                 return "deploy";
