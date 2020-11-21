@@ -12,14 +12,13 @@ public class Item {
         this.isGood = isGood;
         this.description = description;
     }
-
     @Override
     public String toString() {
         return "Item{" +
                 "id=" + id +
                 ", data='" + data + '\'' +
                 ", isGood=" + isGood +
-                ", description='" + description + '\'' +
+
                 '}';
     }
 

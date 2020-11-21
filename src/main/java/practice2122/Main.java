@@ -24,14 +24,17 @@ public class Main {
             while(true){
                 switch (sc.nextLine().toLowerCase()){
                     case("get all"):
-                      System.out.println(storageType.getAll());
+                        List<Item> items=storageType.getAll();
+                        for(Item i: items){
+                            System.out.println(i);
+                        }
                       break;
                     case("get"):
                         System.out.println("Choose item's id");
                         id=sc.nextInt();
                         if(storageType.get(id)==null) {System.out.println("There is no item with the id.");}
                         else{
-                            System.out.println(storageType.get(id));
+                            System.out.println(storageType.get(id)+" "+"Description: "+storageType.get(id).getDescription());
                         }
                         break;
                     case("add item"):
