@@ -32,6 +32,7 @@ public class Worker {
     JsonReader jsonReader;
     List<Integer> ids= new ArrayList<>();
     Worker(){
+        Type type = new TypeToken<List<Integer>>(){}.getType();
         try {
             writer=new FileWriter(file,true);
             reader=new FileReader(file);
@@ -43,6 +44,7 @@ public class Worker {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        ids=gson.fromJson(jsonReader,type);
     }
     void getAll() throws IllegalStateException, IOException, InterruptedException {
         tasks.clear();
@@ -58,7 +60,6 @@ public class Worker {
     }
     void performingAllOperations() throws IOException, InterruptedException {
         double res;
-            Type type = new TypeToken<List<Integer>>(){}.getType();
             for (JsonObject i : tasks) {
                 if(!ids.contains(i.get("id").getAsInt())){
                     res=parseAndPerformOp(i.get("expression").getAsString());
@@ -84,7 +85,11 @@ public class Worker {
                 .uri(URI.create("http://80.87.199.76:3000/reports"))
                 .setHeader("Content-Type", "application/json")
                 .build();
-        HttpResponse<String>response=client.send(request,HttpResponse.BodyHandlers.ofString());
+       try {
+           HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+       }catch(IOException|InterruptedException e){
+           e.printStackTrace();
+       }
 
     }
     double parseAndPerformOp(String s){
