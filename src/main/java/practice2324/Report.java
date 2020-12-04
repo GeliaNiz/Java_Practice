@@ -2,13 +2,13 @@ package practice2324;
 
 public class Report {
     private int id;
-    private int taskld;
+    private int taskId;
     private String worker;
     private double result;
 
     public Report(int id, int taskld, String worker, double result) {
         this.id = id;
-        this.taskld = taskld;
+        this.taskId = taskld;
         this.worker = worker;
         this.result = result;
     }
@@ -21,12 +21,12 @@ public class Report {
         this.id = id;
     }
 
-    public int getTaskld() {
-        return taskld;
+    public int getTaskId() {
+        return taskId;
     }
 
-    public void setTaskld(int taskld) {
-        this.taskld = taskld;
+    public void setTaskId(int taskId) {
+        this.taskId = taskId;
     }
 
     public String getWorker() {
