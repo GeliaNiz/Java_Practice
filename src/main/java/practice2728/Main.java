@@ -25,33 +25,27 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException, InvocationTargetException, IllegalAccessException {
         Gson gson = new Gson();
         Worker worker = new Worker();
+        Operation operation;
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .GET()
                 .uri(URI.create("http://gitlessons2020.rtuitlab.ru:3000/reflectionTasks"))
                 .build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        JsonArray array = gson.fromJson(response.body(), JsonArray.class);
-        List<Method> methods = Arrays.stream(Worker.class.getMethods())
+        ArrayList<Task> array = gson.fromJson(response.body(), new TypeToken<ArrayList<Task>>(){}.getType());
+        List<Method> methods = Arrays.stream(Worker.class.getDeclaredMethods())
                 .filter(m -> Arrays.stream(m.getAnnotations()).anyMatch(a -> a instanceof Operation))
                 .collect(Collectors.toList());
 
-        for (JsonElement i : array) {
+        for (Task i : array) {
             for (Method j : methods) {
-                if (i.getAsJsonObject().get("type").getAsString().equals(j.getName())) {
-                    if (j.getName().equals("sum"))
-                        j.invoke(worker, i.getAsJsonObject().get("data").getAsJsonObject().get("numbers"));
-
-                    if (j.getName().equals("print")) {
-                        worker.setDelimeter(i.getAsJsonObject().get("data").getAsJsonObject().get("delimeter").getAsString());
-                        j.invoke(worker, i.getAsJsonObject().get("data").getAsJsonObject().get("words"));
+                    operation=j.getAnnotation(Operation.class);
+                    if(i.getType().equals(operation.name())){
+                       j.invoke(worker,i.getData());
                     }
                 }
             }
         }
     }
 
-
-
-}
 

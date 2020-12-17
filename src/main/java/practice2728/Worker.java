@@ -9,79 +9,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Worker {
-    private int id;
-    private String type;
-    private JsonArray data;
-    private String delimeter;
-    Gson gson=new Gson();
 
-    public Worker() {
-
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public JsonArray getData() {
-        return data;
-    }
-
-    public String getDelimeter() {
-        return delimeter;
-    }
-
-    public void setDelimeter(String delimeter) {
-        this.delimeter = delimeter;
-    }
-
-    public void setData(JsonArray data) {
-        this.data = data;
-    }
-
-    @Operation
-    public void sum(JsonArray data){
+    @Operation(name="sum")
+    public void sum(Data data){
         int sum=0;
-        Type type = new TypeToken<List<Integer>>(){}.getType();
-        ArrayList<Integer> numbers=gson.fromJson(data,type);
-        for(int i=0;i<numbers.size();i++){
-            sum+=numbers.get(i);
+        for(int i=0;i<data.getNumbers().size();i++){
+            sum+=data.getNumbers().get(i);
         }
         System.out.println(sum);
     }
-    @Operation
-    public void print(JsonArray data){
-        Type type = new TypeToken<List<String>>(){}.getType();
-        ArrayList<String> words=gson.fromJson(data,type);
-        for (int i=0;i<words.size();i++){
-            if(i!=words.size()-1) {
-                System.out.print(words.get(i) + delimeter);
+    @Operation(name="print")
+    public void print(Data data){
+        for (int i=0;i<data.getWords().size();i++){
+            if(i!=data.getWords().size()-1) {
+                System.out.print(data.getWords().get(i) + data.getDelimeter());
             }
             else{
-                System.out.print(words.get(i));
+                System.out.print(data.getWords().get(i));
             }
         }
         System.out.println();
     }
 
-    @Override
-    public String toString() {
-        return "Worker{" +
-                "id=" + id +
-                ", type='" + type + '\'' +
-                ", data=" + data +
-                '}';
     }
-}
+
