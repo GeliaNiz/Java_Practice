@@ -24,7 +24,6 @@ public class Item<K,V>{
     public void setValue(V value) {
         this.value = value;
     }
-
     public Item<K,V> getNext() {
         return next;
     }
@@ -32,6 +31,7 @@ public class Item<K,V>{
     public void setNext(Item next) {
         this.next = next;
     }
+
 
     @Override
     public String toString() {

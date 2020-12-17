@@ -15,10 +15,15 @@ public class HashTable<K,V> implements HashMapInterface<K,V> {
         if (i == null) {
             mass[hashFunction(key)] = new Item(key, value);
         }else {
-            while (i.getNext() != null) {
+            while (i.getNext() != null && !i.getKey().equals(key)) {
                 i = i.getNext();
             }
-            i.setNext(new Item(key, value));
+            if(i.getKey().equals(key)){
+                i.setValue(value);
+                return;
+            }
+                i.setNext(new Item(key, value));
+
         }
         int j = 0;
         while (mass[j] == null) j++;
@@ -28,14 +33,18 @@ public class HashTable<K,V> implements HashMapInterface<K,V> {
 
     @Override
     public V get(K key) {
-        Item<K, V> i = mass[hashFunction(key)];
-        if (i == null) {
-            return null;
+        int j=hashFunction(key);
+        for(int i=0;i<size;i++) {
+            Item<K, V> k= mass[j];
+            if (k == null) {
+                return null;
+            }
+            while (!k.getKey().equals(key)) {
+                k = k.getNext();
+            }
+            return k.getValue();
         }
-        while (!i.getKey().equals(key)) {
-            i = i.getNext();
-        }
-        return i.getValue();
+        return null;
     }
 
     @Override
